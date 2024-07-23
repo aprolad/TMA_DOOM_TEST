@@ -1,20 +1,31 @@
-<head>
-    <meta charset = "UTF-8" />
-    <title>The Game of Life</title>
-    <link rel="stylesheet" href="life.css">    
-</head>
-<body>
-
-<div id="gridContainer">
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>js-dos api</title>
+    <style type="text/css">
+      .dosbox-container { width: 640px; height: 400px; }
+      .dosbox-container > .dosbox-overlay { background: url(https://js-dos.com/cdn/digger.png); }
+      .dosbox-start { font-size: 35px !important; }
+    </style>
+  </head>
+  <body>
+    <div id="dosbox"></div>
+    <br/>
+    <button onclick="dosbox.requestFullScreen();">Make fullscreen</button>
     
-</div>
-
-<div class="controls">
-<button id="start"><span>Start</span></button>
-<button id="clear"><span>Clear</span></button>
-<button id="random"><span>Random</span></button>
-</div>
-    
-<script src="code.js"></script>
-    
-</body>
+    <script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
+    <script type="text/javascript">
+      var dosbox = new Dosbox({
+        id: "dosbox",
+        onload: function (dosbox) {
+          dosbox.run('https://aprolad.github.io/TMA_DOOM_TEST/123.zip', './WAR.EXE');
+        },
+        onrun: function (dosbox, app) {
+          console.log("App '" + app + "' is runned");
+        }
+      });
+    </script>
+  </body>
+</html>
