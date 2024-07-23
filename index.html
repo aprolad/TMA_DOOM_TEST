@@ -5,12 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>js-dos api</title>
     <style type="text/css">
-      .dosbox-container { width: 640px; height: 400px; }
+      .dosbox-container { width: 320px; height: 240px; }
       .dosbox-container > .dosbox-overlay { background: url(https://js-dos.com/cdn/DOOM.png); }
       .dosbox-start { font-size: 35px !important; }
     </style>
   </head>
   <body>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <div id="dosbox"></div>
     <br/>
     <button onclick="dosbox.requestFullScreen();">Make fullscreen</button>
@@ -20,7 +21,7 @@
       var dosbox = new Dosbox({
         id: "dosbox",
         onload: function (dosbox) {
-          dosbox.run("upload/DOOM-@evilution.zip", "./doom");
+          dosbox.run("https://js-dos.com/cdn/upload/DOOM-@evilution.zip", "./DOOM/DOOM.EXE");
         },
         onrun: function (dosbox, app) {
           console.log("App '" + app + "' is runned");
